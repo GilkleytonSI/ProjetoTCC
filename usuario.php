@@ -31,6 +31,7 @@
 			$endereco  = $_POST['endereco'];
 			$cidade  = $_POST['cidade'];
 			$email = $_POST['email'];
+			$cep = $_POST['cep'];
 			$sexo  = $_POST['sexo'];
 			$nascimento  = $_POST['nascimento'];
 			$telefone  = $_POST['telefone'];
@@ -43,6 +44,7 @@
 			$usuario->setEndereco($endereco);
 			$usuario->setCidade($cidade);
 			$usuario->setEmail($email);
+			$usuario->setCep($cep);
 			$usuario->setSexo($sexo);
 			$usuario->setNascimento($nascimento);
 			$usuario->setTelefone($telefone);
@@ -74,6 +76,7 @@
 			$endereco  = $_POST['endereco'];
 			$cidade  = $_POST['cidade'];
 			$email = $_POST['email'];
+			$cep = $_POST['cep'];
 			$sexo  = $_POST['sexo'];
 			$nascimento  = $_POST['nascimento'];
 			$telefone  = $_POST['telefone'];
@@ -85,6 +88,7 @@
 			$usuario->setEndereco($endereco);
 			$usuario->setCidade($cidade);
 			$usuario->setEmail($email);
+			$usuario->setCep($cep);
 			$usuario->setSexo($sexo);
 			$usuario->setNascimento($nascimento);
 			$usuario->setTelefone($telefone);
@@ -136,6 +140,10 @@
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-envelope"></i></span>
 				<input type="text" name="email" value="<?php echo $resultado->email; ?>" placeholder="E-mail:" />
+			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<input type="text" name="cep" value="<?php echo $resultado->cep; ?>" placeholder="CEP:" />
 			</div>
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
@@ -192,6 +200,10 @@
 			</div>
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
+				<input type="text" name="cep" placeholder="CEP:" />
+			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
 				<select name="sexo">
 					<option selected>Sexo</option>
 					<option>M</option>
@@ -230,6 +242,7 @@
 					<th>Endereço:</th>
 					<th>Cidade:</th>
 					<th>E-mail:</th>
+					<th>CEP:</th>
 					<th>Sexo:</th>
 					<th>Nascimento:</th>
 					<th>Telefone:</th>
@@ -249,6 +262,7 @@
 					<td><?php echo $value->endereco; ?></td>
 					<td><?php echo $value->cidade; ?></td>
 					<td><?php echo $value->email; ?></td>
+					<td><?php echo $value->cep; ?></td>
 					<td><?php echo $value->sexo; ?></td>
 					<td><?php echo $value->nascimento; ?></td>
 					<td><?php echo $value->telefone; ?></td>

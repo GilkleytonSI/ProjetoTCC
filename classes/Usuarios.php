@@ -10,6 +10,7 @@ class Usuarios extends CrudUser{
 	private $endereco;
 	private $cidade;
 	private $email;
+	private $cep;
 	private $sexo;
 	private $nascimento;
 	private $telefone;
@@ -50,6 +51,14 @@ class Usuarios extends CrudUser{
 
 	public function setEmail($email){
 		$this->email = $email;
+	}
+
+	public function setCep($cep){
+		$this->cep = $cep;
+	}
+
+	public function getCep(){
+		return $this->cep;
 	}
 
 	public function setSexo($sexo){
@@ -94,14 +103,15 @@ class Usuarios extends CrudUser{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (nome, sobrenome, endereco, cidade, email, sexo, nascimento, telefone, login, senha) VALUES (:nome, :sobrenome, 
-		:endereco, :cidade, :email, :sexo, :nascimento, :telefone, :login, :senha)";
+		$sql  = "INSERT INTO $this->table (nome, sobrenome, endereco, cidade, email, cep, sexo, nascimento, telefone, login, senha) VALUES (:nome, :sobrenome, 
+		:endereco, :cidade, :email, :cep, :sexo, :nascimento, :telefone, :login, :senha)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':sobrenome', $this->sobrenome);
 		$stmt->bindParam(':endereco', $this->endereco);
 		$stmt->bindParam(':cidade', $this->cidade);
 		$stmt->bindParam(':email', $this->email);
+		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':sexo', $this->sexo);
 		$stmt->bindParam(':nascimento', $this->nascimento);
 		$stmt->bindParam(':telefone', $this->telefone);
@@ -113,14 +123,14 @@ class Usuarios extends CrudUser{
 
 	public function update($id){
 
-		$sql  = "UPDATE $this->table SET nome = :nome, sobrenome = :sobrenome, endereco = :endereco, cidade = :cidade, email = :email, 
-		sexo = :sexo, nascimento = :nascimento, telefone = :telefone, login = :login, senha = :senha  WHERE id = :id";
+		$sql  = "UPDATE $this->table SET nome = :nome, sobrenome = :sobrenome, endereco = :endereco, cidade = :cidade, email = :email, cep = :cep, sexo = :sexo, nascimento = :nascimento, telefone = :telefone, login = :login, senha = :senha  WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':sobrenome', $this->sobrenome);
 		$stmt->bindParam(':endereco', $this->endereco);
 		$stmt->bindParam(':cidade', $this->cidade);
 		$stmt->bindParam(':email', $this->email);
+		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':sexo', $this->sexo);
 		$stmt->bindParam(':nascimento', $this->nascimento);
 		$stmt->bindParam(':telefone', $this->telefone);

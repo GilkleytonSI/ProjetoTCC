@@ -13,6 +13,7 @@ class Contatos extends CrudCont{
 	private $estado;
 	private $cidade;
 	private $email;
+	private $nascimento;
 	private $telefone1;
 	private $telefone2;
 	private $usu_id;
@@ -81,6 +82,14 @@ class Contatos extends CrudCont{
 		return $this->email;
 	}
 
+	public function setNascimento($nascimento){
+		$this->nascimento = $nascimento;
+	}
+
+	public function getNascimento(){
+		return $this->nascimento;
+	}
+
 	public function setTelefone1($telefone1){
 		$this->telefone1 = $telefone1;
 	}
@@ -107,8 +116,8 @@ class Contatos extends CrudCont{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (nome, rua, bairro, complemento, cep, estado, cidade, email, telefone1, telefone2, usu_id) VALUES (:nome, :rua, 
-		:bairro, :complemento, :cep, :estado, :cidade, :email, :telefone1, :telefone2, :usu_id)";
+		$sql  = "INSERT INTO $this->table (nome, rua, bairro, complemento, cep, estado, cidade, email, nascimento, telefone1, telefone2, usu_id) VALUES (:nome, :rua, 
+		:bairro, :complemento, :cep, :estado, :cidade, :email, :nascimento, :telefone1, :telefone2, :usu_id)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':rua', $this->rua);
@@ -118,6 +127,7 @@ class Contatos extends CrudCont{
 		$stmt->bindParam(':estado', $this->estado);
 		$stmt->bindParam(':cidade', $this->cidade);
 		$stmt->bindParam(':email', $this->email);
+		$stmt->bindParam(':nascimento', $this->nascimento);
 		$stmt->bindParam(':telefone1', $this->telefone1);
 		$stmt->bindParam(':telefone2', $this->telefone2);
 		$stmt->bindParam(':usu_id', $this->usu_id);
@@ -128,7 +138,7 @@ class Contatos extends CrudCont{
 	public function update($id){
 
 		$sql  = "UPDATE $this->table SET nome = :nome, rua = :rua, bairro = :bairro, complemento = :complemento, cep = :cep, 
-		estado = :estado, cidade = :cidade, email = :email, telefone1 = :telefone1, telefone2 = :telefone2, usu_id = :usu_id  WHERE id = :id";
+		estado = :estado, cidade = :cidade, email = :email, nascimento = :nascimento, telefone1 = :telefone1, telefone2 = :telefone2, usu_id = :usu_id  WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':rua', $this->rua);
@@ -138,6 +148,7 @@ class Contatos extends CrudCont{
 		$stmt->bindParam(':estado', $this->estado);
 		$stmt->bindParam(':cidade', $this->cidade);
 		$stmt->bindParam(':email', $this->email);
+		$stmt->bindParam(':nascimento', $this->nascimento);
 		$stmt->bindParam(':telefone1', $this->telefone1);
 		$stmt->bindParam(':telefone2', $this->telefone2);
 		$stmt->bindParam(':usu_id', $this->usu_id);

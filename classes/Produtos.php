@@ -15,6 +15,7 @@ class Produtos extends CrudProd{
 	private $altura;
 	private $largura;
 	private $comprimento;
+	private $data_validade;
 	private $pedidos_id;
 
 	
@@ -98,6 +99,14 @@ class Produtos extends CrudProd{
 		return $this->comprimento;
 	}
 
+	public function setDtValidade($data_validade){
+		$this->data_validade = $data_validade;
+	}
+
+	public function getDtValidade(){
+		return $this->data_validade;
+	}
+
 	public function setPedidoId($pedidos_id){
 		$this->pedidos_id = $pedidos_id;
 	}
@@ -109,7 +118,7 @@ class Produtos extends CrudProd{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (nome, quantidade, preco_unitario, unidade_estoque, descricao, unidade_medida, status, altura, largura, comprimento, pedidos_id) VALUES (:nome, :quantidade, :preco_unitario, :unidade_estoque, :descricao, :unidade_medida, :status, :altura, :largura, :comprimento, :pedidos_id)";
+		$sql  = "INSERT INTO $this->table (nome, quantidade, preco_unitario, unidade_estoque, descricao, unidade_medida, status, altura, largura, comprimento, data_validade, pedidos_id) VALUES (:nome, :quantidade, :preco_unitario, :unidade_estoque, :descricao, :unidade_medida, :status, :altura, :largura, :comprimento, :data_validade, :pedidos_id)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':quantidade', $this->quantidade);
@@ -121,6 +130,7 @@ class Produtos extends CrudProd{
 		$stmt->bindParam(':altura', $this->altura);
 		$stmt->bindParam(':largura', $this->largura);
 		$stmt->bindParam(':comprimento', $this->comprimento);
+		$stmt->bindParam(':data_validade', $this->data_validade);
 		$stmt->bindParam(':pedidos_id', $this->pedidos_id);
 		return $stmt->execute(); 
 
@@ -128,7 +138,7 @@ class Produtos extends CrudProd{
 
 	public function update($id){
 
-		$sql  = "UPDATE $this->table SET nome = :nome, quantidade = :quantidade, preco_unitario = :preco_unitario, unidade_estoque = :unidade_estoque, descricao = :descricao, unidade_medida = :unidade_medida, status = :status, altura = :altura, largura = :largura, comprimento = :comprimento, pedidos_id = :pedidos_id WHERE id = :id";
+		$sql  = "UPDATE $this->table SET nome = :nome, quantidade = :quantidade, preco_unitario = :preco_unitario, unidade_estoque = :unidade_estoque, descricao = :descricao, unidade_medida = :unidade_medida, status = :status, altura = :altura, largura = :largura, comprimento = :comprimento, data_validade = :data_validade, pedidos_id = :pedidos_id WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':quantidade', $this->quantidade);
@@ -140,6 +150,7 @@ class Produtos extends CrudProd{
 		$stmt->bindParam(':altura', $this->altura);
 		$stmt->bindParam(':largura', $this->largura);
 		$stmt->bindParam(':comprimento', $this->comprimento);
+		$stmt->bindParam(':data_validade', $this->data_validade);
 		$stmt->bindParam(':pedidos_id', $this->pedidos_id);
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();

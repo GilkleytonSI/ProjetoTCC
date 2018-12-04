@@ -34,6 +34,7 @@
 			$estado  = $_POST['estado'];
 			$cidade  = $_POST['cidade'];
 			$email  = $_POST['email'];
+			$nascimento  = $_POST['nascimento'];
 			$telefone1  = $_POST['telefone1'];
 			$telefone2  = $_POST['telefone2'];
 			$usu_id  = $_POST['usu_id'];
@@ -47,6 +48,7 @@
 			$contato->setEstado($estado);
 			$contato->setCidade($cidade);
 			$contato->setEmail($email);
+			$contato->setNascimento($nascimento);
 			$contato->setTelefone1($telefone1);
 			$contato->setTelefone2($telefone2);
 			$contato->setUsuId($usu_id);
@@ -79,6 +81,7 @@
 			$estado  = $_POST['estado'];
 			$cidade  = $_POST['cidade'];
 			$email  = $_POST['email'];
+			$nascimento  = $_POST['nascimento'];
 			$telefone1  = $_POST['telefone1'];
 			$telefone2  = $_POST['telefone2'];
 			$usu_id  = $_POST['usu_id'];
@@ -92,6 +95,7 @@
 			$contato->setEstado($estado);
 			$contato->setCidade($cidade);
 			$contato->setEmail($email);
+			$contato->setNascimento($nascimento);
 			$contato->setTelefone1($telefone1);
 			$contato->setTelefone2($telefone2);
 			$contato->setUsuId($usu_id);
@@ -161,6 +165,10 @@
 				<input type="text" name="email" value="<?php echo $resultado->email; ?>" placeholder="E-mail:" />
 			</div>
 			<div class="input-prepend">
+				<span class="add-on"><i class="icon-gift"></i></span>
+				<input type="date" name="nascimento" value="<?php echo $resultado->nascimento; ?>" placeholder="Nascimento:" />
+			</div>
+			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
 				<input type="text" name="telefone1" value="<?php echo $resultado->telefone1; ?>" placeholder="Telefone1:" />
 			</div>
@@ -220,6 +228,10 @@
 				<input type="text" name="email" placeholder="E-mail:" />
 			</div>
 			<div class="input-prepend">
+				<span class="add-on"><i class="icon-gift"></i></span>
+				<input type="date" name="nascimento" placeholder="Nascimento:" />
+			</div>
+			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
 				<input type="text" name="telefone1" placeholder="Telefone1:" />
 			</div>
@@ -250,6 +262,7 @@
 					<th>Estado:</th>
 					<th>Cidade:</th>
 					<th>E-mail:</th>
+					<th>Dt.Nasc.</th>
 					<th>Telefone1:</th>
 					<th>Telefone2:</th>
 					<th>Usuário:</th>				
@@ -270,6 +283,7 @@
 					<td><?php echo $value->estado; ?></td>
 					<td><?php echo $value->cidade; ?></td>
 					<td><?php echo $value->email; ?></td>
+					<td><?php echo $value->nascimento; ?></td>
 					<td><?php echo $value->telefone1; ?></td>
 					<td><?php echo $value->telefone2; ?></td>
 					<td><?php echo $value->usu_id; ?></td>

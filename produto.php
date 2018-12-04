@@ -36,6 +36,7 @@
 			$altura  = $_POST['altura'];
 			$largura  = $_POST['largura'];
 			$comprimento  = $_POST['comprimento'];
+			$data_validade  = $_POST['data_validade'];
 			$pedidos_id  = $_POST['pedidos_id'];
 			
 
@@ -49,6 +50,7 @@
 			$produto->setAltura($altura);
 			$produto->setLargura($largura);
 			$produto->setComprimento($comprimento);
+			$produto->setDtValidade($data_validade);
 			$produto->setPedidoId($pedidos_id);
 			
 
@@ -82,6 +84,7 @@
 			$altura  = $_POST['altura'];
 			$largura  = $_POST['largura'];
 			$comprimento  = $_POST['comprimento'];
+			$data_validade  = $_POST['data_validade'];
 			$pedidos_id  = $_POST['pedidos_id'];
 		
 			
@@ -96,6 +99,7 @@
 			$produto->setAltura($altura);
 			$produto->setLargura($largura);
 			$produto->setComprimento($comprimento);
+			$produto->setDtValidade($data_validade);
 			$produto->setPedidoId($pedidos_id);
 		
 
@@ -143,7 +147,7 @@
 			</div>
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
-				<input type="text" name="descricao" value="<?php echo $resultado->rg; ?>" placeholder="Descrição:" />
+				<input type="text" name="descricao" value="<?php echo $resultado->descricao; ?>" placeholder="Descrição:" />
 			</div>
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
@@ -168,6 +172,10 @@
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
 				<input type="text" name="comprimento" value="<?php echo $resultado->comprimento; ?>" placeholder="Comprimento:" />
+			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<input type="date" name="data_validade" value="<?php echo $resultado->data_validade; ?>" placeholder="Data Validade:" />
 			</div>
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
@@ -228,6 +236,10 @@
 			</div>
 			<div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
+				<input type="date" name="data_validade" placeholder="Data Validade:" />
+			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
 				<input type="text" name="pedidos_id" placeholder="Código do pedido:" />
 			</div>
 			<br />
@@ -251,6 +263,7 @@
 					<th>Altura:</th>
 					<th>Largura:</th>
 					<th>Comprimento:</th>
+					<th>Dt.Validade</th>
 					<th>Cód.Pedido:</th>			
 					<th>Ações:</th>
 				</tr>
@@ -271,6 +284,7 @@
 					<td><?php echo $value->altura; ?></td>
 					<td><?php echo $value->largura; ?></td>
 					<td><?php echo $value->comprimento; ?></td>
+					<td><?php echo $value->data_validade; ?></td>
 					<td><?php echo $value->pedidos_id; ?></td>
 					<td>
 						<?php echo "<a href='produto.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
