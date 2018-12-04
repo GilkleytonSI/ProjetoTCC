@@ -109,7 +109,7 @@ class Produtos extends CrudProd{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table (nome, quantidade, preco_unitario, unidade_estoque, descricao, unidade_medida, status, altura, largura, comprimento) VALUES (:nome, :quantidade, :preco_unitario, :unidade_estoque, :descricao, :unidade_medida, :status, :altura, :largura, :comprimento)";
+		$sql  = "INSERT INTO $this->table (nome, quantidade, preco_unitario, unidade_estoque, descricao, unidade_medida, status, altura, largura, comprimento, pedidos_id) VALUES (:nome, :quantidade, :preco_unitario, :unidade_estoque, :descricao, :unidade_medida, :status, :altura, :largura, :comprimento, :pedidos_id)";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':quantidade', $this->quantidade);
@@ -121,13 +121,14 @@ class Produtos extends CrudProd{
 		$stmt->bindParam(':altura', $this->altura);
 		$stmt->bindParam(':largura', $this->largura);
 		$stmt->bindParam(':comprimento', $this->comprimento);
+		$stmt->bindParam(':pedidos_id', $this->pedidos_id);
 		return $stmt->execute(); 
 
 	}
 
 	public function update($id){
 
-		$sql  = "UPDATE $this->table SET nome = :nome, quantidade = :quantidade, preco_unitario = :preco_unitario, unidade_estoque = :unidade_estoque, descricao = :descricao, unidade_medida = :unidade_medida, status = :status, altura = :altura, largura = :largura, comprimento = :comprimento WHERE id = :id";
+		$sql  = "UPDATE $this->table SET nome = :nome, quantidade = :quantidade, preco_unitario = :preco_unitario, unidade_estoque = :unidade_estoque, descricao = :descricao, unidade_medida = :unidade_medida, status = :status, altura = :altura, largura = :largura, comprimento = :comprimento, pedidos_id = :pedidos_id WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':quantidade', $this->quantidade);
@@ -139,6 +140,7 @@ class Produtos extends CrudProd{
 		$stmt->bindParam(':altura', $this->altura);
 		$stmt->bindParam(':largura', $this->largura);
 		$stmt->bindParam(':comprimento', $this->comprimento);
+		$stmt->bindParam(':pedidos_id', $this->pedidos_id);
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 

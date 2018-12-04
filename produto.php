@@ -36,6 +36,7 @@
 			$altura  = $_POST['altura'];
 			$largura  = $_POST['largura'];
 			$comprimento  = $_POST['comprimento'];
+			$pedidos_id  = $_POST['pedidos_id'];
 			
 
 			$produto->setNome($nome);
@@ -48,6 +49,7 @@
 			$produto->setAltura($altura);
 			$produto->setLargura($largura);
 			$produto->setComprimento($comprimento);
+			$produto->setPedidoId($pedidos_id);
 			
 
 			# Insert
@@ -80,6 +82,7 @@
 			$altura  = $_POST['altura'];
 			$largura  = $_POST['largura'];
 			$comprimento  = $_POST['comprimento'];
+			$pedidos_id  = $_POST['pedidos_id'];
 		
 			
 
@@ -93,6 +96,7 @@
 			$produto->setAltura($altura);
 			$produto->setLargura($largura);
 			$produto->setComprimento($comprimento);
+			$produto->setPedidoId($pedidos_id);
 		
 
 			if($produto->update($id)){
@@ -165,6 +169,10 @@
 				<span class="add-on"><i class="icon-user"></i></span>
 				<input type="text" name="comprimento" value="<?php echo $resultado->comprimento; ?>" placeholder="Comprimento:" />
 			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<input type="text" name="pedidos_id" value="<?php echo $resultado->pedidos_id; ?>" placeholder="Código do pedido:" />
+			</div>
 			<input type="hidden" name="id" value="<?php echo $resultado->id; ?>">
 			<br />
 			<input type="submit" name="atualizar" class="btn btn-primary" value="Atualizar dados">					
@@ -218,6 +226,10 @@
 				<span class="add-on"><i class="icon-user"></i></span>
 				<input type="text" name="comprimento" placeholder="Comprimento:" />
 			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<input type="text" name="pedidos_id" placeholder="Código do pedido:" />
+			</div>
 			<br />
 			<input type="submit" name="cadastrar" class="btn btn-primary" value="Cadastrar dados">					
 		</form>
@@ -238,7 +250,8 @@
 					<th>Status:</th>
 					<th>Altura:</th>
 					<th>Largura:</th>
-					<th>Comprimento:</th>			
+					<th>Comprimento:</th>
+					<th>Cód.Pedido:</th>			
 					<th>Ações:</th>
 				</tr>
 			</thead>
@@ -258,6 +271,7 @@
 					<td><?php echo $value->altura; ?></td>
 					<td><?php echo $value->largura; ?></td>
 					<td><?php echo $value->comprimento; ?></td>
+					<td><?php echo $value->pedidos_id; ?></td>
 					<td>
 						<?php echo "<a href='produto.php?acao=editar&id=" . $value->id . "'>Editar</a>"; ?>
 						<?php echo "<a href='produto.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'>Deletar</a>"; ?>
