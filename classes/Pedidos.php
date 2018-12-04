@@ -107,7 +107,7 @@ class Pedidos extends CrudPedid{
 
 	public function update($id){
 
-		$sql  = "UPDATE $this->table SET data_pedido = :data_pedido, data_entrega = :data_entrega, data_envio = :data_envio, nome_destinatario = :nome_destinatario, endereco = :endereco, cidade = :cidade, estado = :estado, cep = :cep, pais = :pais, pedidos_id = :pedidos_id WHERE id = :id";
+		$sql  = "UPDATE $this->table SET data_pedido = :data_pedido, data_entrega = :data_entrega, data_envio = :data_envio, nome_destinatario = :nome_destinatario, endereco = :endereco, cidade = :cidade, estado = :estado, cep = :cep, pais = :pais WHERE id = :id";
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':data_pedido', $this->data_pedido);
 		$stmt->bindParam(':data_entrega', $this->data_entrega);
